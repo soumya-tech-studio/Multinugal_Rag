@@ -5,7 +5,7 @@ from Prompts.prompts import RAG_PROMPT
 from language_detect.detect import LanguageDetect
 from reteriver.hybrid import RetrieverService
 from Reranker.rerank_doc import RerankerService
-class chainservice:
+class ChainService:
     def __init__(self):
         self.LLM=LLMService().get_llm()
         self.lang_detect=LanguageDetect()
