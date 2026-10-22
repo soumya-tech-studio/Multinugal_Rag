@@ -2,12 +2,12 @@ from fastapi import FastAPI, UploadFile, File
 from Ingestion_pipeline.pipeline import  IngestionPipeline
 from Registry.document_register import DocumentRegister
 from fastapi import status,HTTPException
-from chain.runnable_chain import  chainservice
+from chain.runnable_chain import  ChainService
 from pydantic import BaseModel
 import traceback
 app=FastAPI()
 pipeline=IngestionPipeline()
-chain=chainservice()
+chain=ChainService()
 class AskRequest(BaseModel):
     question:str
     
