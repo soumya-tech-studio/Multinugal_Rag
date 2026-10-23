@@ -10,7 +10,7 @@ class LoaderRegister:
             ".pdf": PDFLoader(),
             ".docx": DocxLoader()
         }
-    def get_extractor(self,file):
+    def get_extractor(self,file, document_id):
 
         
         path=Path(file)
@@ -18,7 +18,7 @@ class LoaderRegister:
         loader=self.extractors.get(filetype)
         if loader is None:
             raise ValueError(f"Unsupported file type: {filetype}")
-        doc_data=loader.load(file)
+        doc_data=loader.load(file, document_id)
         return doc_data
     
     
