@@ -8,6 +8,8 @@ class DocxLoader(Loader):
         
         for para_id,para in enumerate(doc.paragraphs):
             text=para.text.strip()
+            if not text:
+                continue
             meta={
                 "document_id":document_id,
                 "filename":filename,
