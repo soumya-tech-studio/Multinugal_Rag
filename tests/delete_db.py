@@ -2,7 +2,7 @@ from Registry.document_register import DocumentRegister
 
 register = DocumentRegister()
 
-register.delete_document(26)
+register.delete_document(27)
 
 
 

@@ -10,6 +10,11 @@ class RetrieverService:
         self.vector_store=FaissVector()
     def get_reteriver(self):
         chunks=self.chunk_storage.load()
+        print("Loaded chunks:", len(chunks))
+
+        if not chunks:
+            raise ValueError("No chunks found. Check your chunk storage.")
+
         bm25_retriever=BM25Retriever.from_documents(
             chunks
         )

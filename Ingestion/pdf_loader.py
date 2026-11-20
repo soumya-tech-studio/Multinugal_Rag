@@ -29,8 +29,15 @@ class PDFLoader(Loader):
         
         pdf_path=temp_dir/filename
         with open(pdf_path,"wb") as f:
+            file.file.seek(0)
             f.write(file.file.read())
+        print("PDF PATH:", pdf_path)
+        print("PDF EXISTS:", pdf_path.exists())
+        print("PDF SIZE:", pdf_path.stat().st_size)    
         pdf=fitz.open(pdf_path)
+        
+        
+
             
         pages_data=[]
         
