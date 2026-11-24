@@ -6,8 +6,19 @@ from chain.runnable_chain import  ChainService
 from pydantic import BaseModel
 import traceback
 app=FastAPI()
-pipeline=IngestionPipeline()
-chain=ChainService()
+pipeline=None
+chain=None
+def get_pipeline():
+    global pipeline
+    if pipeline is None:
+        pipeline=IngestionPipeline()
+    return pipeline
+def get_chain():
+    global chain
+    if chain is None:
+        chain=ChainService()
+    return chain
+        
 class AskRequest(BaseModel):
     question:str
     
